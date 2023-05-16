@@ -4,19 +4,17 @@ import pyttsx3
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/", methods=['GET', 'POST'])
 def index():
-    return render_template("home.html")
-
-
-@app.route("/play", methods=['GET', 'POST'])
-def play():
-    text = request.form.get('text')
-    converter = pyttsx3.init()
-    converter.setProperty('rate', 150)
-    converter.setProperty('volume', 1)
-    converter.say(text)
-    converter.runAndWait()
+    if request.method == 'POST':
+        text = request.form.get('text')
+        converter = pyttsx3.init()
+        converter.setProperty('rate', 150)
+        converter.setProperty('volume', 1)
+        converter.say(text)
+        converter.runAndWait()
+    else:
+        return render_template("home.html")
     return render_template("home.html")
 
 
