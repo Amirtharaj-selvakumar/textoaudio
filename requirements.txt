@@ -15,5 +15,5 @@ pypiwin32==223
 pyttsx3==2.90
 requests==2.30.0
 urllib3==2.0.2
-Werkzeug==2.3.4
+Werkzeug==2.2.3
 yarg==0.1.9
